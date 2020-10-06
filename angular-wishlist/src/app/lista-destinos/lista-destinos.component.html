@@ -31,7 +31,7 @@
     <app-destino-viaje 
       *ngFor="let d of destinos; let i = index" 
       [destino]="d"
-      [idx]="i"
+      [idx]="i+1"
       (clicked)="elegido($event)"
       ></app-destino-viaje>
   </div>
