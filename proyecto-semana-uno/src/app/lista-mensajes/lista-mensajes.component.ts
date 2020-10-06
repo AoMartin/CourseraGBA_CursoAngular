@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-lista-mensajes',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-mensajes.component.css']
 })
 export class ListaMensajesComponent implements OnInit {
-
-  constructor() { }
+  @HostBinding('attr.class') ccsClass='container content';
+  
+  mensajes:string[];
+  
+  constructor() {
+    this.mensajes = [];
+  }
 
   ngOnInit(): void {
+  }
+
+  guardar(nombre:string,mensaje:string):boolean{
+    this.mensajes.push(`(${nombre}): ${mensaje}`);
+    return false;
   }
 
 }
